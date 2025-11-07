@@ -1,0 +1,146 @@
+@{
+    ViewData["Title"] = "Tạo báo cáo xuất hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <!-- Tiêu đề -->
+    <div class="d-flex align-items-center mb-4">
+        <a href="@Url.Action("Index", "BaoCaoXuat")" class="text-decoration-none text-danger me-3 fs-4">
+            <i class="bi bi-arrow-left-circle"></i>
+        </a>
+        <h2 class="fw-bold text-danger mb-0">Tạo báo cáo xuất hàng</h2>
+    </div>
+
+    <!-- Bộ lọc -->
+    <div class="card shadow-sm mb-4 border-danger">
+        <div class="card-header bg-danger text-white fw-semibold">
+            <i class="bi bi-funnel"></i> Bộ lọc báo cáo
+        </div>
+        <div class="card-body">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-3">
+                    <label class="form-label">Chi nhánh</label>
+                    <select class="form-select">
+                        <option>Tất cả</option>
+                        <option>CN Nguyễn Văn Cừ</option>
+                        <option>CN Lý Thường Kiệt</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Khách hàng</label>
+                    <select class="form-select">
+                        <option>Tất cả</option>
+                        <option>Nguyễn Văn An</option>
+                        <option>Trần Minh Hoàng</option>
+                        <option>Công ty TNHH ABC</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Loại xuất</label>
+                    <select class="form-select">
+                        <option>Tất cả</option>
+                        <option>Xuất bán</option>
+                        <option>Xuất điều chuyển</option>
+                        <option>Xuất trả NCC</option>
+                    </select>
+                </div>
+
+                <div class="col-md-1">
+                    <label class="form-label">Từ ngày</label>
+                    <input type="date" class="form-control" />
+                </div>
+
+                <div class="col-md-1">
+                    <label class="form-label">Đến ngày</label>
+                    <input type="date" class="form-control" />
+                </div>
+
+                <div class="col-md-1">
+                    <button class="btn btn-danger w-100">
+                        <i class="bi bi-search"></i> Xem
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bảng xem trước -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-light fw-semibold">
+            <i class="bi bi-file-earmark-text"></i> Kết quả xem trước
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover align-middle text-center">
+                <thead class="table-danger">
+                    <tr>
+                        <th>#</th>
+                        <th>Mã phiếu xuất</th>
+                        <th>Ngày xuất</th>
+                        <th>Khách hàng</th>
+                        <th>Chi nhánh</th>
+                        <th>Loại xuất</th>
+                        <th>Tổng giá trị</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>PX00123</td>
+                        <td>03/11/2025</td>
+                        <td>Nguyễn Văn An</td>
+                        <td>CN Nguyễn Văn Cừ</td>
+                        <td>Xuất bán</td>
+                        <td>8,500,000 ₫</td>
+                        <td><span class="badge bg-success">Hoàn tất</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>PX00122</td>
+                        <td>01/11/2025</td>
+                        <td>Trần Minh Hoàng</td>
+                        <td>CN Nguyễn Văn Cừ</td>
+                        <td>Xuất điều chuyển</td>
+                        <td>3,200,000 ₫</td>
+                        <td><span class="badge bg-info text-dark">Đã xác nhận</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Tổng kết -->
+            <div class="row mt-4 text-center">
+                <div class="col-md-4">
+                    <div class="p-3 bg-light border rounded">
+                        <div class="fw-semibold text-secondary">Tổng số phiếu</div>
+                        <div class="fs-4 text-danger fw-bold">9</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light border rounded">
+                        <div class="fw-semibold text-secondary">Tổng giá trị xuất</div>
+                        <div class="fs-4 text-danger fw-bold">125,400,000 ₫</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light border rounded">
+                        <div class="fw-semibold text-secondary">Số khách hàng</div>
+                        <div class="fs-4 text-danger fw-bold">5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nút hành động -->
+    <div class="text-end">
+        <button class="btn btn-primary px-4 me-2">
+            <i class="bi bi-save"></i> Lưu báo cáo
+        </button>
+        <button class="btn btn-outline-danger px-4">
+            <i class="bi bi-send"></i> Gửi cho quản lý
+        </button>
+    </div>
+</div>

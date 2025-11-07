@@ -1,0 +1,93 @@
+@{
+    ViewData["Title"] = "Thêm phiếu nhập hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Nút quay lại -->
+<a href="@Url.Action("Index", "NhapHang")"
+   style="display:inline-block; margin-bottom:15px; text-decoration:none; color:#007bff;">
+   ⬅ Quay lại danh sách phiếu nhập
+</a>
+
+<h2>Thêm phiếu nhập hàng</h2>
+
+<div style="display:flex; gap:20px; align-items:flex-start;">
+    <!-- Bên trái -->
+    <div style="flex:1; background:#fff; border:1px solid #ddd; border-radius:6px; padding:15px;">
+        <input type="text" placeholder="Tìm hàng hóa theo mã hoặc tên (F3)" 
+               style="width:100%; padding:8px; border-radius:4px; border:1px solid #ccc;" />
+        <br><br>
+
+        <table border="1" style="width:100%; border-collapse:collapse;">
+            <thead style="background:#f6f8fa;">
+                <tr>
+                    <th>STT</th>
+                    <th>Mã hàng</th>
+                    <th>Tên hàng</th>
+                    <th>ĐVT</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Giảm giá</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+    <td colspan="8" style="text-align:center; padding:40px;">
+        <strong>Thêm sản phẩm từ file Excel</strong><br />
+
+        <!-- Input file ẩn -->
+        <input type="file" id="fileInput" style="display:none;" />
+
+        <!-- Nút giả -->
+        <button type="button" 
+                style="background:#007bff; color:white; border:none; padding:8px 16px; border-radius:4px;"
+                onclick="document.getElementById('fileInput').click();">
+            📂 Chọn file dữ liệu
+        </button>
+    </td>
+</tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bên phải -->
+    <div style="width:350px; background:#fff; border:1px solid #ddd; border-radius:6px; padding:15px;">
+        <label>Nhà cung cấp</label>
+        <input type="text" placeholder="Tìm nhà cung cấp" class="form-control"
+               style="width:100%; padding:8px; margin-bottom:10px;" />
+
+        <label>Mã phiếu nhập</label>
+        <input type="text" placeholder="Mã phiếu tự động" style="width:100%; padding:8px; margin-bottom:10px;" />
+
+        <label>Trạng thái</label>
+        <input type="text" value="Phiếu tạm" readonly style="width:100%; padding:8px; margin-bottom:10px;" />
+
+        <label>Tổng tiền hàng</label>
+        <input type="text" value="0" readonly style="width:100%; padding:8px; margin-bottom:10px;" />
+
+        <label>Giảm giá</label>
+        <input type="number" value="0" style="width:100%; padding:8px; margin-bottom:10px;" />
+
+        <label>Cần trả nhà cung cấp</label>
+        <input type="text" value="0" readonly style="width:100%; padding:8px; color:#007bff; font-weight:bold;" />
+
+        <label>Ghi chú</label>
+        <textarea rows="3" placeholder="Ghi chú" style="width:100%; padding:8px; margin-bottom:10px;"></textarea>
+
+        <form method="post" action="/Phieu/Nhap/LuuTam">
+    <!-- Các input ở đây -->
+    <div style="display:flex; justify-content:space-between;">
+        <button type="submit" style="background:#007bff; color:white; border:none; padding:10px 20px; border-radius:4px;">
+            💾 Lưu tạm
+        </button>
+        <button type="submit" formaction="/Phieu/Nhap/HoanThanh" 
+                style="background:#28a745; color:white; border:none; padding:10px 20px; border-radius:4px;">
+            ✅ Hoàn thành
+        </button>
+    </div>
+</form>
+
+    </div>
+</div>

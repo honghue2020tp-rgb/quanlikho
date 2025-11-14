@@ -93,4 +93,8 @@ D:\QuanLyKho\obj\Debug\net9.0\refint\QuanLyKho.dll
 D:\QuanLyKho\obj\Debug\net9.0\QuanLyKho.pdb
 D:\QuanLyKho\obj\Debug\net9.0\QuanLyKho.genruntimeconfig.cache
 D:\QuanLyKho\obj\Debug\net9.0\ref\QuanLyKho.dll
-D:\QuanLyKho\obj\Debug\net9.0\compressed\f6p6j5cul2-7w6t2bqyy0.gz
+D:\QuanLyKho\obj\Debug\net9.0\QuanLyKho.sourcelink.json
+D:\QuanLyKho\obj\Debug\net9.0\compressed\hfbpn8kgzw-9s12kd6zm5.gz
+D:\QuanLyKho\obj\Debug\net9.0\compressed\ir4jvwpnq3-895t4mupyr.gz
+D:\QuanLyKho\obj\Debug\net9.0\compressed\rcxncetuwf-0lgb97twr1.gz
+D:\QuanLyKho\obj\Debug\net9.0\compressed\f6p6j5cul2-uz6x5zi9ym.gz

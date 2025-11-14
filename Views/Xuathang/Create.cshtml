@@ -5,93 +5,103 @@
 
 <!-- Nút quay lại -->
 <a href="@Url.Action("Index", "XuatHang")"
-   style="display:inline-block; margin-bottom:15px; text-decoration:none; color:#007bff;">
+   class="text-primary d-inline-block mb-3">
    ⬅ Quay lại danh sách phiếu xuất
 </a>
 
-<h2>Tạo phiếu xuất hàng</h2>
+<h2 class="mb-4">Tạo phiếu xuất hàng</h2>
 
-<div style="display:flex; gap:20px; align-items:flex-start;">
-    <!-- Bên trái -->
-    <div style="flex:1; background:#fff; border:1px solid #ddd; border-radius:6px; padding:15px;">
-        <div style="display:flex; align-items:center; gap:8px;">
-            <input type="text" placeholder="Tìm hàng hóa theo mã hoặc tên (F3)" 
-                   style="flex:1; padding:8px; border-radius:4px; border:1px solid #ccc;" />
-            <button id="btnAddProduct" type="button" style="background:#007bff; color:white; border:none; padding:8px 14px; border-radius:4px;">
-                ➕
-            </button>
-        </div>
-        <br />
-
-        <table border="1" style="width:100%; border-collapse:collapse;">
-            <thead style="background:#f6f8fa;">
-                <tr>
-                    <th>STT</th>
-                    <th>Mã hàng</th>
-                    <th>Tên hàng</th>
-                    <th>ĐVT</th>
-                    <th>Tồn kho</th>
-                    <th>Số lượng xuất</th>
-                    <th>Đơn giá</th>
-                    <th>Thành tiền</th>
-                </tr>
-            </thead>
-            <tbody id="productTableBody">
-                <tr>
-                    <td colspan="8" style="text-align:center; padding:40px;">
-                        <strong>Chưa có sản phẩm nào được chọn</strong><br />
-                        <small>Nhấn nút ➕ để thêm sản phẩm hoặc chọn file dữ liệu</small><br /><br />
-
-                        <!-- Input file ẩn -->
-                        <input type="file" id="fileInput" style="display:none;" />
-
-                        <!-- Nút giả -->
-                        <button type="button" 
-                                style="background:#007bff; color:white; border:none; padding:8px 16px; border-radius:4px;"
-                                onclick="document.getElementById('fileInput').click();">
-                            📂 Chọn file dữ liệu
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bên phải -->
-    <div style="width:350px; background:#fff; border:1px solid #ddd; border-radius:6px; padding:15px;">
-        <label>Khách hàng</label>
-        <input type="text" placeholder="Tìm khách hàng" class="form-control"
-               style="width:100%; padding:8px; margin-bottom:10px;" />
-
-        <label>Mã phiếu xuất</label>
-        <input type="text" placeholder="Mã phiếu tự động" style="width:100%; padding:8px; margin-bottom:10px;" />
-
-        <label>Trạng thái</label>
-        <input type="text" value="Phiếu tạm" readonly style="width:100%; padding:8px; margin-bottom:10px;" />
-
-        <label>Tổng tiền hàng</label>
-        <input type="text" id="tongTienHang" value="0" readonly style="width:100%; padding:8px; margin-bottom:10px;" />
-
-        <label>Giảm giá</label>
-        <input type="number" id="giamGia" value="0" style="width:100%; padding:8px; margin-bottom:10px;" />
-
-        <label>Khách phải trả</label>
-        <input type="text" id="canTra" value="0" readonly style="width:100%; padding:8px; color:#007bff; font-weight:bold; margin-bottom:10px;" />
-
-        <label>Ghi chú</label>
-        <textarea rows="3" placeholder="Ghi chú xuất hàng" style="width:100%; padding:8px; margin-bottom:10px;"></textarea>
-
-        <form method="post" action="/Phieu/Xuat/LuuTam">
-            <div style="display:flex; justify-content:space-between;">
-                <button type="submit" style="background:#007bff; color:white; border:none; padding:10px 20px; border-radius:4px;">
-                    💾 Lưu tạm
-                </button>
-                <button type="submit" formaction="/Phieu/Xuat/HoanThanh" 
-                        style="background:#28a745; color:white; border:none; padding:10px 20px; border-radius:4px;">
-                    ✅ Hoàn thành xuất
+<div class="row g-4">
+    <!-- Bên trái: danh sách sản phẩm -->
+    <div class="col-lg-8">
+        <div class="card shadow-sm p-3">
+            <div class="d-flex gap-2 mb-3">
+                <input type="text" placeholder="Tìm hàng hóa theo mã hoặc tên (F3)" 
+                       class="form-control" />
+                <button id="btnAddProduct" type="button" class="btn btn-primary">
+                    ➕
                 </button>
             </div>
-        </form>
+
+            <table class="table table-bordered table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã hàng</th>
+                        <th>Tên hàng</th>
+                        <th>ĐVT</th>
+                        <th>Tồn kho</th>
+                        <th>Số lượng xuất</th>
+                        <th>Đơn giá</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                    <tr>
+                        <td colspan="8" class="text-center py-5">
+                            <strong>Chưa có sản phẩm nào được chọn</strong><br />
+                            <small>Nhấn nút ➕ để thêm sản phẩm hoặc chọn file dữ liệu</small><br /><br />
+                            <input type="file" id="fileInput" style="display:none;" />
+                            <button type="button" class="btn btn-primary"
+                                onclick="document.getElementById('fileInput').click();">
+                                📂 Chọn file dữ liệu
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bên phải: thông tin phiếu -->
+    <div class="col-lg-4">
+        <div class="card shadow-sm p-3">
+            <div class="mb-3">
+                <label>Khách hàng</label>
+                <input type="text" placeholder="Tìm khách hàng" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Mã phiếu xuất</label>
+                <input type="text" placeholder="Mã phiếu tự động" class="form-control" readonly />
+            </div>
+
+            <div class="mb-3">
+                <label>Trạng thái</label>
+                <input type="text" value="Phiếu tạm" class="form-control" readonly />
+            </div>
+
+            <div class="mb-3">
+                <label>Tổng tiền hàng</label>
+                <input type="text" id="tongTienHang" value="0" class="form-control" readonly />
+            </div>
+
+            <div class="mb-3">
+                <label>Giảm giá</label>
+                <input type="number" id="giamGia" value="0" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Khách phải trả</label>
+                <input type="text" id="canTra" value="0" class="form-control fw-bold text-primary" readonly />
+            </div>
+
+            <div class="mb-3">
+                <label>Ghi chú</label>
+                <textarea rows="3" placeholder="Ghi chú xuất hàng" class="form-control"></textarea>
+            </div>
+
+            <form method="post" action="/Phieu/Xuat/LuuTam">
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary flex-grow-1">
+                        💾 Lưu tạm
+                    </button>
+                    <button type="submit" formaction="/Phieu/Xuat/HoanThanh" class="btn btn-success flex-grow-1">
+                        ✅ Hoàn thành xuất
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -133,6 +143,7 @@
   </div>
 </div>
 
+@section Scripts {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const btnAdd = document.getElementById("btnAddProduct");
@@ -193,3 +204,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+}
